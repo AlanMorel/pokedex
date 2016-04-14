@@ -1,7 +1,5 @@
 from query import query
 from PIL import Image
-import requests
-from io import BytesIO
 
 class Pokemon:
 
@@ -9,11 +7,19 @@ class Pokemon:
 
         pokemon = query('/api/v1/pokemon/' + identifier)
 
-        description_uri = pokemon['descriptions'][0]['resource_uri']
+        description_uri = pokemon['descriptions'][-1]['resource_uri']
 
-        self.id = pokemon['national_id']
+        id = pokemon['national_id']
+
+        if id < 10:
+            self.id = "00" + str(id)
+        elif id < 100:
+            self.id = "0" + str(id)
+        else:
+            self.id = str(id)
+
         self.name = pokemon['name']
-        self.sprite = 'http://pokeapi.co/media/img/' + str(self.id) + ".png"
+        self.sprite = "./static/images/" + str(id) + ".png"
         self.description = query(description_uri)['description']
 
         weight = float(int(pokemon['weight']) / 10)
@@ -47,12 +53,9 @@ class Pokemon:
         self.background_color = get_background_color(self.sprite)
 
 
-def get_background_color(url):
+def get_background_color(path):
 
-    print("using url: ", url)
-    response = requests.get(url)
-
-    image = Image.open(BytesIO(response.content))
+    image = Image.open(path)
     image = image.convert('RGB')
 
     width, height = image.size
@@ -68,7 +71,7 @@ def get_background_color(url):
                 g += int(pixel[1])
                 b += int(pixel[2])
 
-                if pixel[0] is 0 and pixel[1] is 0 and pixel[2] is 0:
+                if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
                     continue
 
                 count += 1

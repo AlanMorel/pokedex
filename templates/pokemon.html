@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Pokédex - {{name}}</title>
     <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='pokemon.css') }}">
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='type-icons.css') }}">
 </head>
 <body>
 <div class="header">
@@ -12,27 +13,62 @@
         <span class="title">Pokédex</span>
     </a>
 </div>
-<div class="content">
-    <img src="/static/images/{{id}}.png" class="sprite"><br>
+<div class="top">
+    <img src="{{sprite}}" class="sprite"><br>
     <div class="id">{{id}}</div>
     <div class="name">{{name}}</div>
-    <br><br>
-    Description: {{description}}<br><br>
-    Weight: {{kg}} kg / {{pounds}} pounds<br>
-    Height: {{meters}} meters / {{feet}}'{{inches}}''<br>
+</div>
+<div class="description">{{description}}</div>
+<div class="weight">Weight: {{kg}} kg / {{pounds}} pounds</div>
+<div class="height">Height: {{meters}} meters / {{feet}}'{{inches}}''</div>
+<div class="types">
     <span class="type-icon type-{{type1}}">{{type1}}</span>
-    <span class="type-icon type-{{type2}}">{{type2}}</span><br><br>
-    Stats<br>
-    HP: {{hp}}<br>
-    Attack: {{attack}} Special Attack: {{special_attack}}<br>
-    Defense: {{defense}} Special Defense: {{special_defense}}<br>
-    Speed: {{speed}} EXP: {{exp}}<br><br>
+    <span class="type-icon type-{{type2}}">{{type2}}</span>
+</div>
+<div class="outer">
+    <div class="stat">Attack</div>
+    <div class="stat-value">
+        {{attack}}
+        <div class="bar-outer">
+            <div class="bar-inner"></div>
+        </div>
+    </div>
+</div>
+<div class="outer">
+    <div class="stat">Special Attack</div>
+    <div class="stat-value">
+        {{special_attack}}
+        <div class="bar-outer">
+            <div class="bar-inner"></div>
+        </div>
+    </div>
+</div>
+<div class="outer">
+    <div class="stat">Defense</div>
+    <div class="stat-value">
+        {{defense}}
+        <div class="bar-outer">
+            <div class="bar-inner"></div>
+        </div>
+    </div>
+</div>
+<div class="outer">
+    <div class="stat">Special Defense</div>
+    <div class="stat-value">
+        {{special_defense}}
+        <div class="bar-outer">
+            <div class="bar-inner"></div>
+        </div>
+    </div>
+</div>
+<div class="outer">
+HP: {{hp}} Speed: {{speed}} EXP: {{exp}}
 </div>
 <div class="search">
-        <form method="get" action="{{ url_for('pokemon') }}">
-        Enter a name of another Pokémon:
+    <form method="get" action="{{ url_for('pokemon') }}">
+        Enter a name or id of a Pokémon:<br>
         <input type="text" name="name">
-        <input type="submit"/>
+        <input type="submit" value="Search"/>
     </form>
 </div>
 </body>
@@ -40,5 +76,5 @@
       var color = [{{background_color[0]}},{{background_color[1]}},{{background_color[2]}}];
       document.body.style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.25)";
       document.querySelector(".name").style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 1)";
-   </script>
+</script>
 </html>
