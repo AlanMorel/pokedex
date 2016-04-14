@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex - {{name}}</title>
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='pokemon.css') }}">
+</head>
+<body>
+<div class="header">
+    <a href="/">
+        <img src="/static/pokeball.png" class="pokeball">
+        <span class="title">Pokédex</span>
+    </a>
+</div>
+<div class="content">
+    <img src="/static/images/{{id}}.png" class="sprite"><br>
+    <div class="id">{{id}}</div>
+    <div class="name">{{name}}</div>
+    <br><br>
+    Description: {{description}}<br><br>
+    Weight: {{kg}} kg / {{pounds}} pounds<br>
+    Height: {{meters}} meters / {{feet}}'{{inches}}''<br>
+    <span class="type-icon type-{{type1}}">{{type1}}</span>
+    <span class="type-icon type-{{type2}}">{{type2}}</span><br><br>
+    Stats<br>
+    HP: {{hp}}<br>
+    Attack: {{attack}} Special Attack: {{special_attack}}<br>
+    Defense: {{defense}} Special Defense: {{special_defense}}<br>
+    Speed: {{speed}} EXP: {{exp}}<br><br>
+</div>
+<div class="search">
+        <form method="get" action="{{ url_for('pokemon') }}">
+        Enter a name of another Pokémon:
+        <input type="text" name="name">
+        <input type="submit"/>
+    </form>
+</div>
+</body>
+<script>
+      var color = [{{background_color[0]}},{{background_color[1]}},{{background_color[2]}}];
+      document.body.style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.25)";
+      document.querySelector(".name").style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 1)";
+   </script>
+</html>

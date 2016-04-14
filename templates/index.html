@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+</head>
+<body>
+Welcome to Alan's Pokédex!
+<br>
+<form method="get" action="{{ url_for('pokemon') }}">
+    Enter a name of a Pokémon:
+    <input type="text" name="name">
+    <input type="submit"/>
+</form>
+</body>
+</html>
