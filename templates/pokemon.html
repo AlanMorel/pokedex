@@ -1,80 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pokédex - {{name}}</title>
-    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='pokemon.css') }}">
-    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='type-icons.css') }}">
-</head>
-<body>
-<div class="header">
-    <a href="/">
-        <img src="/static/pokeball.png" class="pokeball">
-        <span class="title">Pokédex</span>
-    </a>
-</div>
-<div class="top">
-    <img src="{{sprite}}" class="sprite"><br>
-    <div class="id">{{id}}</div>
-    <div class="name">{{name}}</div>
-</div>
-<div class="description">{{description}}</div>
-<div class="weight">Weight: {{kg}} kg / {{pounds}} pounds</div>
-<div class="height">Height: {{meters}} meters / {{feet}}'{{inches}}''</div>
-<div class="types">
-    <span class="type-icon type-{{type1}}">{{type1}}</span>
-    <span class="type-icon type-{{type2}}">{{type2}}</span>
-</div>
-<div class="outer">
-    <div class="stat">Attack</div>
-    <div class="stat-value">
-        {{attack}}
-        <div class="bar-outer">
-            <div class="bar-inner"></div>
-        </div>
-    </div>
-</div>
-<div class="outer">
-    <div class="stat">Special Attack</div>
-    <div class="stat-value">
-        {{special_attack}}
-        <div class="bar-outer">
-            <div class="bar-inner"></div>
-        </div>
-    </div>
-</div>
-<div class="outer">
-    <div class="stat">Defense</div>
-    <div class="stat-value">
-        {{defense}}
-        <div class="bar-outer">
-            <div class="bar-inner"></div>
-        </div>
-    </div>
-</div>
-<div class="outer">
-    <div class="stat">Special Defense</div>
-    <div class="stat-value">
-        {{special_defense}}
-        <div class="bar-outer">
-            <div class="bar-inner"></div>
-        </div>
-    </div>
-</div>
-<div class="outer">
-HP: {{hp}} Speed: {{speed}} EXP: {{exp}}
-</div>
-<div class="search">
-    <form method="get" action="{{ url_for('pokemon') }}">
-        Enter a name or id of a Pokémon:<br>
-        <input type="text" name="name">
-        <input type="submit" value="Search"/>
-    </form>
-</div>
-</body>
-<script>
+   <head>
+      <meta charset="UTF-8">
+      <title>Pokédex - {{name}}</title>
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+      <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='pokemon.css') }}">
+      <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='type-icons.css') }}">
+   </head>
+   <body>
+      <div class="nav">
+         <a href="/">
+         <img src="/static/images/pokeball.png" class="pokeball">
+         <span class="title">Pokédex</span>
+         </a>
+      </div>
+      <div class="top">
+         <img src="{{sprite}}" class="sprite"><br>
+         <div class="id">{{id}}</div>
+         <div class="name">{{name}}</div>
+      </div>
+      <div class="description">{{description}}</div>
+      <div class="weight-and-height">
+         <div class="header"><img src="/static/images/weight.png">Weight</div>
+         <div class="header"><img src="/static/images/height.png">Height</div>
+         <div class="value">{{kg}} kg / {{pounds}} pounds</div>
+         <div class="value">{{meters}} meters / {{feet}}'{{inches}}''</div>
+      </div>
+      <div class="types">
+         <span class="type-icon type-{{type1}}">{{type1}}</span>
+         <span class="type-icon type-{{type2}}">{{type2}}</span>
+      </div>
+      <div class="stats-header">
+         <img src="/static/images/stats.png">
+      </div>
+      <div class="stats">
+         <div class="outer">
+            <div class="stat">Attack</div>
+            <div class="stat-value">{{attack}}
+               <div class="bar-outer">
+                  <div class="bar-inner"></div>
+               </div>
+            </div>
+         </div>
+         <div class="outer">
+            <div class="stat">Special Attack</div>
+            <div class="stat-value">{{special_attack}}
+               <div class="bar-outer">
+                  <div class="bar-inner"></div>
+               </div>
+            </div>
+         </div>
+         <div class="outer">
+            <div class="stat">Defense</div>
+            <div class="stat-value">{{defense}}
+               <div class="bar-outer">
+                  <div class="bar-inner"></div>
+               </div>
+            </div>
+         </div>
+         <div class="outer">
+            <div class="stat">Special Defense</div>
+            <div class="stat-value">{{special_defense}}
+               <div class="bar-outer">
+                  <div class="bar-inner"></div>
+               </div>
+            </div>
+         </div>
+         <div class="outer">
+            <div class="inner-column inner-column-header">HP</div>
+            <div class="inner-column inner-column-header">Speed</div>
+            <div class="inner-column inner-column-header">EXP</div>
+            <div class="inner-column inner-column-stat">{{hp}}</div>
+            <div class="inner-column inner-column-stat">{{speed}}</div>
+            <div class="inner-column inner-column-stat">{{exp}}</div>
+         </div>
+      </div>
+      <div class="search">
+         <form method="get" action="{{ url_for('pokemon') }}">
+            Search for another Pokémon or type:<br>
+            <input type="text" name="name">
+            <input type="submit" id="search-submit" value="" class="search-icon"/>
+            <a href="{{ url_for('pokemon') }}?name=random">
+            <img src="/static/images/random.png">
+            </a>
+         </form>
+      </div>
+   </body>
+   <script>
       var color = [{{background_color[0]}},{{background_color[1]}},{{background_color[2]}}];
-      document.body.style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.25)";
-      document.querySelector(".name").style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 1)";
-</script>
+      document.body.style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.4)";
+      document.querySelector(".name").style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.8)";
+   </script>
 </html>

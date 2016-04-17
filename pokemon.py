@@ -1,11 +1,16 @@
 from query import query
 from PIL import Image
 
+API = '/api/v1/pokemon/'
+
+
 class Pokemon:
 
     def __init__(self, identifier):
 
-        pokemon = query('/api/v1/pokemon/' + identifier)
+        identifier = identifier.lower()
+
+        pokemon = query(API + identifier)
 
         description_uri = pokemon['descriptions'][-1]['resource_uri']
 
@@ -19,7 +24,7 @@ class Pokemon:
             self.id = str(id)
 
         self.name = pokemon['name']
-        self.sprite = "./static/images/" + str(id) + ".png"
+        self.sprite = "./static/images/art/" + str(id) + ".png"
         self.description = query(description_uri)['description']
 
         weight = float(int(pokemon['weight']) / 10)
@@ -67,13 +72,16 @@ def get_background_color(path):
         for y in range(height):
                 pixel = pixels[x, y]
 
+                if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
+                    continue
+
+                if pixel[0] > 200 and pixel[1] > 200 and pixel[2] > 200:
+                    continue
+
                 r += int(pixel[0])
                 g += int(pixel[1])
                 b += int(pixel[2])
 
-                if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
-                    continue
-
                 count += 1
 
-    return (int((r/count)), int((g/count)), int((b/count)))
+    return int(r/count), int(g/count), int(b/count)
