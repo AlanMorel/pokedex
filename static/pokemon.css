@@ -184,18 +184,17 @@ input[type="image"] {
     border-radius: 4px;
 }
 
-.inner-column {
+.outer .header{
     width: 190px;
     display: inline-block;
-}
-
-.inner-column-stat {
-    font-size: 36px;
-}
-
-.inner-column-header {
     font-size: 26px;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.outer .value{
+    width: 190px;
+    display: inline-block;
+    font-size: 36px;
 }
 
 .weight-and-height img {

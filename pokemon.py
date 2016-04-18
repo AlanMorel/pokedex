@@ -1,5 +1,6 @@
-from query import query
 from PIL import Image
+from query import query
+from stats import Stats
 
 API = '/api/v1/pokemon/'
 
@@ -9,67 +10,53 @@ class Pokemon:
     def __init__(self, identifier):
 
         identifier = identifier.lower()
-
         pokemon = query(API + identifier)
 
-        description_uri = pokemon['descriptions'][-1]['resource_uri']
+        national_id = pokemon['national_id']
 
-        id = pokemon['national_id']
-
-        if id < 10:
-            self.id = "00" + str(id)
-        elif id < 100:
-            self.id = "0" + str(id)
-        else:
-            self.id = str(id)
-
+        self.id = get_id(national_id)
         self.name = pokemon['name']
-        self.sprite = "./static/images/art/" + str(id) + ".png"
-        self.description = query(description_uri)['description']
 
-        weight = float(int(pokemon['weight']) / 10)
+        self.description = get_description(pokemon)
+        self.sprite = "./static/images/art/" + str(national_id) + ".png"
 
-        self.kg = str(weight)
-        self.pounds = str(round(weight * 2.2, 1))
-
-        height = float(int(pokemon['height']) / 10)
-        self.meters = str(height)
-
-        total_inches = height * 100 * 0.39
-
-        self.inches = int(total_inches % 12)
-        self.feet = int(total_inches / 12)
+        self.weight = float(int(pokemon['weight']) / 10)
+        self.height = float(int(pokemon['height']) / 10)
 
         self.type1 = pokemon['types'][0]["name"]
         self.type2 = pokemon['types'][1]["name"] if len(pokemon['types']) > 1 else "none"
 
-        self.hp = pokemon['hp']
+        self.stats = Stats(pokemon)
 
-        self.attack = pokemon['attack']
-        self.special_attack = pokemon['sp_atk']
+    def get_kilograms(self):
+        return str(self.weight)
 
-        self.defense = pokemon['defense']
-        self.special_defense = pokemon['sp_def']
+    def get_pounds(self):
+        return str(round(self.weight * 2.2, 1))
 
-        self.speed = pokemon['speed']
+    def get_meters(self):
+        return str(self.height)
 
-        self.exp = pokemon['exp']
+    def get_inches(self):
+        inches = self.height * 100 * 0.39
+        return int(inches % 12)
 
-        self.background_color = get_background_color(self.sprite)
+    def get_feet(self):
+        inches = self.height * 100 * 0.39
+        return int(inches / 12)
 
+    def get_background_color(self):
 
-def get_background_color(path):
+        image = Image.open(self.sprite)
+        image = image.convert('RGB')
 
-    image = Image.open(path)
-    image = image.convert('RGB')
+        width, height = image.size
+        pixels = image.load()
 
-    width, height = image.size
-    pixels = image.load()
+        r, g, b, count = 0, 0, 0, 0
 
-    r, g, b, count = 0, 0, 0, 0
-
-    for x in range(width):
-        for y in range(height):
+        for x in range(width):
+            for y in range(height):
                 pixel = pixels[x, y]
 
                 if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
@@ -84,4 +71,18 @@ def get_background_color(path):
 
                 count += 1
 
-    return int(r/count), int(g/count), int(b/count)
+        return int(r / count), int(g / count), int(b / count)
+
+
+def get_id(national_id):
+    if national_id < 10:
+        return "00" + str(national_id)
+    elif national_id < 100:
+        return "0" + str(national_id)
+    else:
+        return str(national_id)
+
+
+def get_description(pokemon):
+    uri = pokemon['descriptions'][-1]['resource_uri']
+    return query(uri)['description']
