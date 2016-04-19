@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, url_for
-from pokemon import Pokemon
+from flask import Flask, render_template, request
+from pokemon import Pokemon, load_from_cache
+from random import randint
 
 app = Flask(__name__)
 
@@ -11,11 +12,25 @@ def index():
 
 @app.route('/pokemon')
 def pokemon():
-    #pokemon = Pokemon('bulbasaur')
 
-    if (request.args.get('name')):
-        pokemon = Pokemon(request.args.get('name'))
+    query = request.args.get('name')
 
+    if query in 'random':
+        query = str(randint(1, 647))
+
+    pokemon = load_from_cache(query)
+
+    if pokemon is None:
+        pokemon = Pokemon(query)
+
+        Pokemon.cache[int(pokemon.id)] = pokemon
+        Pokemon.cache[pokemon.name.lower()] = pokemon
+
+        print("Added " + pokemon.name + " to cache")
+        print(Pokemon.cache)
+
+    print(pokemon.stats.get_bar_values())
+    print(pokemon.stats.get_bar_colors())
     return render_template('pokemon.html',
                            id=pokemon.id,
                            name=pokemon.name,
@@ -35,7 +50,10 @@ def pokemon():
                            special_defense=pokemon.stats.special_defense,
                            speed=pokemon.stats.speed,
                            exp=pokemon.stats.exp,
-                           background_color=pokemon.get_background_color())
+                           background_color=pokemon.get_background_color(),
+                           bar_values=pokemon.stats.get_bar_values(),
+                           bar_colors=pokemon.stats.get_bar_colors(),
+                           )
 
 app.debug = True
-app.run(threaded = True)
+app.run(threaded=True)

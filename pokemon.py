@@ -7,6 +7,8 @@ API = '/api/v1/pokemon/'
 
 class Pokemon:
 
+    cache = {}
+
     def __init__(self, identifier):
 
         identifier = identifier.lower()
@@ -47,8 +49,7 @@ class Pokemon:
 
     def get_background_color(self):
 
-        image = Image.open(self.sprite)
-        image = image.convert('RGB')
+        image = Image.open(self.sprite).convert('RGB')
 
         width, height = image.size
         pixels = image.load()
@@ -86,3 +87,11 @@ def get_id(national_id):
 def get_description(pokemon):
     uri = pokemon['descriptions'][-1]['resource_uri']
     return query(uri)['description']
+
+
+def load_from_cache(key):
+    if key.isdigit():
+        key = int(key)
+    else:
+        key = key.lower()
+    return Pokemon.cache.get(key)

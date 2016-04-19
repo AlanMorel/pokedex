@@ -8,14 +8,15 @@
       <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='type-icons.css') }}">
    </head>
    <body>
-      <div class="nav">
+      <nav>
          <a href="/">
-         <img src="/static/images/pokeball.png" class="pokeball">
-         <span class="title">Pokédex</span>
+            <img src="/static/images/pokeball.png" class="pokeball">
+            <span class="title">Pokédex</span>
          </a>
-      </div>
+      </nav>
       <div class="top">
-         <img src="{{sprite}}" class="sprite"><br>
+         <img src="{{sprite}}" class="sprite">
+          <br>
          <div class="id">{{id}}</div>
          <div class="name">{{name}}</div>
       </div>
@@ -35,38 +36,38 @@
       </div>
       <div class="stats">
          <div class="outer">
-            <div class="stat">Attack</div>
-            <div class="stat-value">{{attack}}
+            <div class="header">Attack</div>
+            <div class="value">{{attack}}
                <div class="bar-outer">
-                  <div class="bar-inner"></div>
+                  <div class="bar-inner attack"></div>
                </div>
             </div>
          </div>
          <div class="outer">
-            <div class="stat">Special Attack</div>
-            <div class="stat-value">{{special_attack}}
+            <div class="header">Special Attack</div>
+            <div class="value">{{special_attack}}
                <div class="bar-outer">
-                  <div class="bar-inner"></div>
+                  <div class="bar-inner special-attack"></div>
                </div>
             </div>
          </div>
          <div class="outer">
-            <div class="stat">Defense</div>
-            <div class="stat-value">{{defense}}
+            <div class="header">Defense</div>
+            <div class="value">{{defense}}
                <div class="bar-outer">
-                  <div class="bar-inner"></div>
+                  <div class="bar-inner defense"></div>
                </div>
             </div>
          </div>
          <div class="outer">
-            <div class="stat">Special Defense</div>
-            <div class="stat-value">{{special_defense}}
+            <div class="header">Special Defense</div>
+            <div class="value">{{special_defense}}
                <div class="bar-outer">
-                  <div class="bar-inner"></div>
+                  <div class="bar-inner special-defense"></div>
                </div>
             </div>
          </div>
-         <div class="outer">
+         <div class="outer2">
             <div class="header">HP</div>
             <div class="header">Speed</div>
             <div class="header">EXP</div>
@@ -77,11 +78,12 @@
       </div>
       <div class="search">
          <form method="get" action="{{ url_for('pokemon') }}">
-            Search for another Pokémon or type:<br>
+            Search for another Pokémon or type:
+            <br>
             <input type="text" name="name">
             <input type="submit" id="search-submit" value="" class="search-icon"/>
             <a href="{{ url_for('pokemon') }}?name=random">
-            <img src="/static/images/random.png">
+               <img src="/static/images/random.png">
             </a>
          </form>
       </div>
@@ -90,5 +92,15 @@
       var color = [{{background_color[0]}},{{background_color[1]}},{{background_color[2]}}];
       document.body.style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.4)";
       document.querySelector(".name").style.backgroundColor = "rgba(" + color[0] + "," + color[1] + "," + color[2] + ", 0.8)";
+
+      document.querySelector(".attack").style.width = {{bar_values[0]}} + "%";
+      document.querySelector(".special-attack").style.width = {{bar_values[1]}} + "%";
+      document.querySelector(".defense").style.width = {{bar_values[2]}} + "%";
+      document.querySelector(".special-defense").style.width = {{bar_values[3]}} + "%";
+
+      document.querySelector(".attack").style.backgroundColor = "{{bar_colors[0]}}";
+      document.querySelector(".special-attack").style.backgroundColor = "{{bar_colors[1]}}";
+      document.querySelector(".defense").style.backgroundColor = "{{bar_colors[2]}}";
+      document.querySelector(".special-defense").style.backgroundColor = "{{bar_colors[3]}}";
    </script>
 </html>
