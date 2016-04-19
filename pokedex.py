@@ -23,14 +23,9 @@ def pokemon():
     if pokemon is None:
         pokemon = Pokemon(query)
 
-        Pokemon.cache[int(pokemon.id)] = pokemon
-        Pokemon.cache[pokemon.name.lower()] = pokemon
-
-        print("Added " + pokemon.name + " to cache")
-        print(Pokemon.cache)
-
     print(pokemon.stats.get_bar_values())
     print(pokemon.stats.get_bar_colors())
+
     return render_template('pokemon.html',
                            id=pokemon.id,
                            name=pokemon.name,

@@ -30,6 +30,12 @@ class Pokemon:
 
         self.stats = Stats(pokemon)
 
+        Pokemon.cache[int(self.id)] = self
+        Pokemon.cache[self.name.lower()] = self
+
+        print("Added " + self.name + " to cache")
+        print(Pokemon.cache)
+
     def get_kilograms(self):
         return str(self.weight)
 
