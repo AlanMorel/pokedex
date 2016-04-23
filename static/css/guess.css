@@ -1,0 +1,90 @@
+.types {
+    margin-bottom: 20px;
+}
+
+.sprite {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    animation-play-state: paused;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(8px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-16px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(16px, 0, 0);
+    }
+}
+.hide-pokemon {
+    filter: brightness(0%);
+    -webkit-filter: brightness(0%);
+    -moz-filter: brightness(0%);
+    -o-filter: brightness(0%);
+    -ms-filter: brightness(0%);
+}
+@keyframes show-animation {
+    0% {
+        filter: brightness(0%);
+        -webkit-filter: brightness(0%);
+        -moz-filter: brightness(0%);
+        -o-filter: brightness(0%);
+        -ms-filter: brightness(0%);
+    }
+    100% {
+        filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+    }
+}
+.show-pokemon {
+    animation-name: show-animation;
+    animation: show-animation 3s infinite;
+    animation-iteration-count: 1;
+}
+
+.guess-outer {
+    width: 100%;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    margin-bottom: 30px;
+}
+.guess-inner {
+    width: 600px;
+    margin: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.guess-inner input[type="text"] {
+    width: 400px;
+}
+.hide {
+    display: none;
+}
+.show-top {
+    display: inline-block;
+}
+
+.sound {
+    max-width: 28px;
+    vertical-align: bottom;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+}
+
+.sound:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}

@@ -21,6 +21,7 @@ class Pokemon:
 
         self.description = get_description(pokemon)
         self.sprite = "./static/images/art/" + str(national_id) + ".png"
+        self.sound = "./static/sound/" + str(national_id) + ".ogg"
 
         self.weight = float(int(pokemon['weight']) / 10)
         self.height = float(int(pokemon['height']) / 10)
