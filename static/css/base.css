@@ -5,6 +5,10 @@ html {
     font-family: Verdana, Geneva, sans-serif;
 }
 
+a{
+    text-decoration:none;
+}
+
 body {
     margin: 0;
 }

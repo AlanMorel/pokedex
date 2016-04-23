@@ -3,12 +3,12 @@
     margin: auto;
 }
 
-.description, .weight-and-height, .types, .stats-header {
+.description, .weight-and-height, .types-and-abilities, .stats-header {
     width: 600px;
     margin: auto;
 }
 
-.types {
+.types-and-ability {
     margin-top: 20px;
 }
 
@@ -40,18 +40,21 @@ form {
     padding: 10px;
 }
 
-.weight-and-height .header {
+.weight-and-height .header, .types-and-abilities .header {
     font-size: 26px;
+    /* margin-bottom: 50px; */
     font-family: 'Source Sans Pro', sans-serif;
-    width: 290px;
+    width: 295px;
     display: inline-block;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 }
 
-.weight-and-height .value {
-    width: 290px;
+.weight-and-height .value, .types-and-abilities .value {
+    width: 295px;
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 2px;
+    vertical-align: top;
 }
 
 .sprite {
@@ -120,7 +123,7 @@ input[type="image"] {
     background-color: #333333;
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 16px;
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -155,9 +158,10 @@ input[type="image"] {
     font-size: 36px;
 }
 
-.weight-and-height img {
-    width: 20px;
+.weight-and-height img, .types-and-abilities img {
+    max-height: 28px;
     margin-right: 12px;
+    vertical-align: bottom;
 }
 
 .sound{
@@ -171,4 +175,17 @@ input[type="image"] {
 
 .sound:hover{
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ability {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 4px 6px 4px 6px;
+    border: solid #999999 1px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.types-and-abilities {
+    margin-top: 24px;
 }

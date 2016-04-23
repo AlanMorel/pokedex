@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Pokédex - {{name}}</title>
-      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-      <link rel=stylesheet type="text/css" href="/static/css/base.css">
-      <link rel=stylesheet type="text/css" href="/static/css/pokemon.css">
-      <link rel=stylesheet type="text/css" href="/static/css/icons.css">
-   </head>
-   <body>
-      <nav>
-         <a href="/">
-            <img src="/static/images/pokeball.png" class="pokeball">
-            <img src="/static/images/logo.png" class="logo">
-         </a>
-      </nav>
-      <div class="top">
-         <img src="{{sprite}}" class="sprite">
-          <br>
-         <div class="id">{{id}}</div>
-         <div class="name">{{name}}<img src="/static/images/sound.png" class="sound" onclick="playSound()"></div>
-      </div>
-      <div class="description">{{description}}</div>
-      <div class="weight-and-height">
-         <div class="header"><img src="/static/images/weight.png">Weight</div>
-         <div class="header"><img src="/static/images/height.png">Height</div>
-         <div class="value">{{kg}} kg / {{pounds}} pounds</div>
-         <div class="value">{{meters}} meters / {{feet}}'{{inches}}''</div>
-      </div>
-      <div class="types">
-         <span class="type-icon type-{{type1}}">{{type1}}</span>
-         <span class="type-icon type-{{type2}}">{{type2}}</span>
-      </div>
-      <div class="stats-header">
-         <img src="/static/images/stats.png">
-      </div>
-      <div class="stats">
-         <div class="outer">
-            <div class="header">Attack</div>
-            <div class="value">{{attack}}
-               <div class="bar-outer">
-                  <div class="bar-inner attack"></div>
-               </div>
-            </div>
-         </div>
-         <div class="outer">
-            <div class="header">Special Attack</div>
-            <div class="value">{{special_attack}}
-               <div class="bar-outer">
-                  <div class="bar-inner special-attack"></div>
-               </div>
-            </div>
-         </div>
-         <div class="outer">
-            <div class="header">Defense</div>
-            <div class="value">{{defense}}
-               <div class="bar-outer">
-                  <div class="bar-inner defense"></div>
-               </div>
-            </div>
-         </div>
-         <div class="outer">
-            <div class="header">Special Defense</div>
-            <div class="value">{{special_defense}}
-               <div class="bar-outer">
-                  <div class="bar-inner special-defense"></div>
-               </div>
-            </div>
-         </div>
-         <div class="outer2">
-            <div class="header">HP</div>
-            <div class="header">Speed</div>
-            <div class="header">EXP</div>
-            <div class="value">{{hp}}</div>
-            <div class="value">{{speed}}</div>
-            <div class="value">{{exp}}</div>
-         </div>
-      </div>
-      <div class="search">
-         <form method="get" action="{{ url_for('pokemon_page') }}">
-            Search for another Pokémon or type:
+    <head>
+        <meta charset="UTF-8">
+        <title>Pokédex - {{name}}</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel=stylesheet type="text/css" href="/static/css/base.css">
+        <link rel=stylesheet type="text/css" href="/static/css/pokemon.css">
+        <link rel=stylesheet type="text/css" href="/static/css/icons.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/">
+                <img src="/static/images/pokeball.png" class="pokeball">
+                <img src="/static/images/logo.png" class="logo">
+            </a>
+        </nav>
+        <div class="top">
+            <img src="{{sprite}}" class="sprite">
             <br>
-            <input type="text" name="name">
-            <input type="submit" id="search-submit" value="" class="search-icon"/>
-            <a href="{{ url_for('pokemon_page') }}?name=random">
-               <img src="/static/images/random.png">
-            </a>
-            <a href="{{ url_for('guess_page') }}">
-               <img src="/static/images/guess.png">
-            </a>
-         </form>
-      </div>
-   </body>
-   <script>
+            <div class="id">{{id}}</div>
+            <div class="name">{{name}}<img src="/static/images/sound.png" class="sound" onclick="playSound()"></div>
+        </div>
+        <div class="description">{{description}}</div>
+        <div class="weight-and-height">
+            <div class="header"><img src="/static/images/weight.png">Weight</div>
+            <div class="header"><img src="/static/images/height.png">Height</div>
+            <div class="value">{{kg}} kg / {{pounds}} pounds</div>
+            <div class="value">{{meters}} meters / {{feet}}'{{inches}}''</div>
+        </div>
+        <div class="types-and-abilities">
+            <div class="header"><img src="/static/images/types.png">Types</div>
+            <div class="header"><img src="/static/images/ability.png">Abilities</div>
+            <div class="value">
+                <span class="type-icon type-{{type1}}">{{type1}}</span>
+                <span class="type-icon type-{{type2}}">{{type2}}</span>
+            </div>
+            <div class="value">
+                {% if ability1 != "" %}
+                    <span class="ability">{{ability1}}</span>
+                {% endif %}
+                {% if ability2 != "" %}
+                    <span class="ability">{{ability2}}</span>
+                {% endif %}
+                {% if ability3 != "" %}
+                    <span class="ability">{{ability3}}</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="stats-header">
+            <img src="/static/images/stats.png">
+        </div>
+        <div class="stats">
+            <div class="outer">
+                <div class="header">Attack</div>
+                <div class="value">{{attack}}
+                    <div class="bar-outer">
+                        <div class="bar-inner attack"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="header">Special Attack</div>
+                <div class="value">{{special_attack}}
+                    <div class="bar-outer">
+                        <div class="bar-inner special-attack"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="header">Defense</div>
+                <div class="value">{{defense}}
+                    <div class="bar-outer">
+                        <div class="bar-inner defense"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="header">Special Defense</div>
+                <div class="value">{{special_defense}}
+                    <div class="bar-outer">
+                        <div class="bar-inner special-defense"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="outer2">
+                <div class="header">HP</div>
+                <div class="header">Speed</div>
+                <div class="header">EXP</div>
+                <div class="value">{{hp}}</div>
+                <div class="value">{{speed}}</div>
+                <div class="value">{{exp}}</div>
+            </div>
+        </div>
+        <div class="search">
+            <form method="get" action="{{ url_for('pokemon_page') }}">
+                Search for another Pokémon or type:
+                <br>
+                <input type="text" name="name">
+                <input type="submit" id="search-submit" value="" class="search-icon"/>
+                <a href="{{ url_for('pokemon_page') }}?name=random">
+                    <img src="/static/images/random.png">
+                </a>
+                <a href="{{ url_for('guess_page') }}">
+                    <img src="/static/images/guess.png">
+                </a>
+            </form>
+        </div>
+    </body>
+    <script>
       var color = [{{background_color[0]}},{{background_color[1]}},{{background_color[2]}}];
       var barValues = [{{bar_values[0]}},{{bar_values[1]}},{{bar_values[2]}},{{bar_values[3]}}];
       var barColors = ["{{bar_colors[0]}}","{{bar_colors[1]}}","{{bar_colors[2]}}","{{bar_colors[3]}}"];
       var sound = new Audio("{{sound}}");
-   </script>
-   <script src="/static/js/pokemon.js"></script>
+
+    </script>
+    <script src="/static/js/pokemon.js"></script>
 </html>

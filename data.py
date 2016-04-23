@@ -43,10 +43,10 @@ def load_from_cache(key):
 def load_from_json(key):
     try:
         if key.isdigit():
-            with open('./static/data/id/' + str(key) + '.json') as file:
+            with open('./static/data/pokemon/id/' + str(key) + '.json') as file:
                 return json.load(file)
         else:
-            with open('./static/data/name/' + key + '.json') as file:
+            with open('./static/data/pokemon/name/' + key + '.json') as file:
                 return json.load(file)
     except:
         return None

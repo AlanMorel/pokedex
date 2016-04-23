@@ -22,6 +22,10 @@ class Pokemon:
         self.type1 = pokemon['types'][0]["name"]
         self.type2 = pokemon['types'][1]["name"] if len(pokemon['types']) > 1 else "none"
 
+        self.ability1 = pokemon['abilities'][0]['name'].capitalize()
+        self.ability2 = pokemon['abilities'][1]['name'].capitalize() if len(pokemon['abilities']) > 1 else ""
+        self.ability3 = pokemon['abilities'][2]['name'].capitalize() if len(pokemon['abilities']) > 2 else ""
+
         self.stats = Stats(pokemon)
 
         data.pokemon_cache[int(self.id)] = self
