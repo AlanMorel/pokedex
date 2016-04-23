@@ -1,18 +1,11 @@
 from PIL import Image
-from query import query
+import data
 from stats import Stats
-
-API = '/api/v1/pokemon/'
 
 
 class Pokemon:
 
-    cache = {}
-
-    def __init__(self, identifier):
-
-        identifier = identifier.lower()
-        pokemon = query(API + identifier)
+    def __init__(self, pokemon):
 
         national_id = pokemon['national_id']
 
@@ -31,31 +24,11 @@ class Pokemon:
 
         self.stats = Stats(pokemon)
 
-        Pokemon.cache[int(self.id)] = self
-        Pokemon.cache[self.name.lower()] = self
+        data.pokemon_cache[int(self.id)] = self
+        data.pokemon_cache[self.name.lower()] = self
 
         print("Added " + self.name + " to cache")
-        print(Pokemon.cache)
-
-    def get_silhouette(self):
-        image = Image.open(self.sprite)
-
-        width, height = image.size
-        pixels = image.load()
-
-        for x in range(width):
-            for y in range(height):
-                pixel = pixels[x, y]
-
-                try:
-                    if pixel[3] is not 255:
-                        continue
-                except:
-                    continue
-
-                pixels[x, y] = (0, 0, 0)
-
-        return image
+        print(data.pokemon_cache)
 
     def get_kilograms(self):
         return str(self.weight)
@@ -113,12 +86,4 @@ def get_id(national_id):
 
 def get_description(pokemon):
     uri = pokemon['descriptions'][-1]['resource_uri']
-    return query(uri)['description']
-
-
-def load_from_cache(key):
-    if key.isdigit():
-        key = int(key)
-    else:
-        key = key.lower()
-    return Pokemon.cache.get(key)
+    return data.query(uri)['description']
