@@ -36,6 +36,26 @@ class Pokemon:
         print("Added " + self.name + " to cache")
         print(Pokemon.cache)
 
+    def get_silhouette(self):
+        image = Image.open(self.sprite)
+
+        width, height = image.size
+        pixels = image.load()
+
+        for x in range(width):
+            for y in range(height):
+                pixel = pixels[x, y]
+
+                try:
+                    if pixel[3] is not 255:
+                        continue
+                except:
+                    continue
+
+                pixels[x, y] = (0, 0, 0)
+
+        return image
+
     def get_kilograms(self):
         return str(self.weight)
 

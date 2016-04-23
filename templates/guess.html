@@ -2,10 +2,10 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <title>Pokédex - {{name}}</title>
+      <title>Pokédex</title>
       <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
       <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='base.css') }}">
-      <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='pokemon.css') }}">
+      <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='guess.css') }}">
       <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='type-icons.css') }}">
    </head>
    <body>
@@ -16,10 +16,10 @@
          </a>
       </nav>
       <div class="top">
-         <img src="{{sprite}}" class="sprite">
+          <img src="{{sprite}}" class="sprite hide-pokemon">
           <br>
-         <div class="id">{{id}}</div>
-         <div class="name">{{name}}</div>
+         <div class="id hide">{{id}}</div>
+         <div class="name hide">{{name}}</div>
       </div>
       <div class="description">{{description}}</div>
       <div class="weight-and-height">
@@ -31,6 +31,13 @@
       <div class="types">
          <span class="type-icon type-{{type1}}">{{type1}}</span>
          <span class="type-icon type-{{type2}}">{{type2}}</span>
+      </div>
+      <div class="guess-outer">
+         <div class="guess-inner">
+            <input type="text" name="guess" placeholder="Take a guess!">
+            <button onclick="guess()">Guess</button>
+            <button onclick="giveUp()">Give Up</button>
+         </div>
       </div>
       <div class="stats-header">
          <img src="/static/images/stats.png">
@@ -106,5 +113,8 @@
       document.querySelector(".special-attack").style.backgroundColor = "{{bar_colors[1]}}";
       document.querySelector(".defense").style.backgroundColor = "{{bar_colors[2]}}";
       document.querySelector(".special-defense").style.backgroundColor = "{{bar_colors[3]}}";
+
+      var pokemon = "{{name}}";
    </script>
+   <script src="/static/guess.js"></script>
 </html>

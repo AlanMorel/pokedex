@@ -10,6 +10,7 @@
 
 .types {
     margin-top: 20px;
+    margin-bottom:20px;
 }
 
 .description {
@@ -57,6 +58,36 @@ form {
 .sprite {
     margin: auto;
     display: block;
+}
+.hide-pokemon{
+    filter: brightness(0%);
+    -webkit-filter: brightness(0%);
+    -moz-filter: brightness(0%);
+    -o-filter: brightness(0%);
+    -ms-filter: brightness(0%);
+}
+
+@keyframes show-animation {
+    0%   {
+        filter: brightness(0%);
+        -webkit-filter: brightness(0%);
+        -moz-filter: brightness(0%);
+        -o-filter: brightness(0%);
+        -ms-filter: brightness(0%);
+    }
+    100% {
+        filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+        }
+}
+
+.show-pokemon {
+    animation-name: show-animation;
+    animation: show-animation 3s infinite;
+    animation-iteration-count: 1;
 }
 
 .name {
@@ -158,4 +189,52 @@ input[type="image"] {
 .weight-and-height img {
     width: 20px;
     margin-right: 12px;
+}
+.guess-outer{
+    width:100%;
+    background-color:#27ae60;
+}
+
+.guess-inner{
+    width:600px;
+    margin:auto;
+    padding-top:12px;
+    padding-bottom:12px;
+}
+
+.guess-inner input[type="text"]{
+    width:400px;
+}
+
+.hide{
+    display:none;
+}
+
+.show-top{
+    display:inline-block;
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(8px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-16px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(16px, 0, 0);
+  }
 }
