@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pokedex</title>
-    <link rel=stylesheet type="text/css" href="/static/css/base.css">
-    <link rel=stylesheet type="text/css" href="/static/css/index.css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-<nav>
-    <a href="/">
-        <img src="/static/images/pokeball.png" class="pokeball">
-        <img src="/static/images/logo.png" class="logo">
-    </a>
-</nav>
-<div class="search-prompt">
-    <div class="form">
-        <form method="get" action="{{ url_for('pokemon') }}">
-            <div class="prompt">Search for a Pokémon or type:</div>
-            <div class="input">
-                <input type="text" name="name">
-                <input type="submit" id="search-submit" value="" class="search-icon"/>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pokédex</title>
+        <link rel=stylesheet type="text/css" href="/static/css/base.css">
+        <link rel=stylesheet type="text/css" href="/static/css/index.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+        <nav>
+            <a href="/">
+                <img src="/static/images/pokeball.png" class="pokeball">
+                <img src="/static/images/logo.png" class="logo">
+            </a>
+        </nav>
+        <div class="search-prompt">
+            <form method="get" action="{{ url_for('pokemon') }}">
+                <div class="prompt">Search for a Pokémon or type:</div>
+                <div class="input">
+                    <input type="text" name="name">
+                    <input type="submit" id="search-submit" value="" class="search-icon"/>
+                </div>
+            </form>
+        </div>
+        <div class="random">
+            <a href="/pokemon?name=random">Learn about a random Pokémon!</a>
+        </div>
+        <div class="guess">
+            <a href="/guess">Play 'Who's that Pokémon?'</a>
+        </div>
+        <div class="footer-container">
+            <div class="footer-1">Pokédex</div>
+            <div class="footer-2">This Pokédex was created using <a href="http://pokeapi.co/">PokéAPI</a> and <a href="http://flask.pocoo.org/">Flask</a>. Pokémon is copyright The Pokémon Company and Nintendo.
             </div>
-        </form>
-    </div>
-</div>
-<div class="random">
-    <a href="/pokemon?name=random">Learn about a random Pokémon!</a>
-</div>
-<div class="guess">
-    <a href="/guess">Play 'Who's that Pokémon?'</a>
-</div>
-<div class="footer-container">
-    <div class="footer-1">Pokédex</div>
-    <div class="footer-2">This Pokédex was created using <a href="http://pokeapi.co/">PokéAPI</a> and <a
-            href="http://flask.pocoo.org/">Flask</a>. Pokémon is copyright The Pokémon Company and Nintendo.
-    </div>
-</div>
-</body>
+        </div>
+    </body>
 </html>
