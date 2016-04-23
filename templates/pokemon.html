@@ -78,15 +78,15 @@
          </div>
       </div>
       <div class="search">
-         <form method="get" action="{{ url_for('pokemon') }}">
+         <form method="get" action="{{ url_for('pokemon_page') }}">
             Search for another Pokémon or type:
             <br>
             <input type="text" name="name">
             <input type="submit" id="search-submit" value="" class="search-icon"/>
-            <a href="{{ url_for('pokemon') }}?name=random">
+            <a href="{{ url_for('pokemon_page') }}?name=random">
                <img src="/static/images/random.png">
             </a>
-            <a href="{{ url_for('guess') }}">
+            <a href="{{ url_for('guess_page') }}">
                <img src="/static/images/guess.png">
             </a>
          </form>
