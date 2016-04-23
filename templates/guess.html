@@ -35,9 +35,9 @@
       </div>
       <div class="guess-outer">
          <div class="guess-inner">
-            <input type="text" name="guess" placeholder="Take a guess!">
-            <button onclick="guess()">Guess</button>
-            <button onclick="giveUp()">Give Up</button>
+            <input type="text" name="guess" placeholder="Who's That Pokémon?">
+               <img src="/static/images/guess.png" onclick="guess()">
+               <img src="/static/images/giveup.png" onclick="giveUp()">
          </div>
       </div>
       <div class="stats-header">
@@ -95,7 +95,7 @@
                <img src="/static/images/random.png">
             </a>
             <a href="{{ url_for('guess') }}">
-               <img src="/static/images/random.png">
+               <img src="/static/images/guess.png">
             </a>
          </form>
       </div>

@@ -56,8 +56,8 @@
 .guess-outer {
     width: 100%;
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-    border-top: solid black 1px;
-    border-bottom: solid black 1px;
+    border-top: solid #008FAF 1px;
+    border-bottom: solid #008FAF 1px;
     margin-bottom: 30px;
 }
 .guess-inner {
@@ -67,7 +67,8 @@
     padding-bottom: 12px;
 }
 .guess-inner input[type="text"] {
-    width: 400px;
+    width: 440px;
+    font-size: 36px;
 }
 .hide {
     display: none;
@@ -87,4 +88,10 @@
 
 .sound:hover {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.guess-inner img {
+    max-width:55px;
+    cursor:pointer;
+    margin-left: 10px;
 }
