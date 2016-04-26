@@ -74,8 +74,8 @@ input[type="text"] {
 
 .footer-container{
     width:100%;
-    height: 125px;
-    background-color: #313131;
+    height: 175px;
+    background-color: #000000;
 }
 
 .footer-1{
@@ -83,7 +83,7 @@ input[type="text"] {
     margin:auto;
     text-align:left;
     font-size: 26px;
-    padding-top: 24px;
+    padding-top: 20px;
     font-family: "Arial Black", Gadget, sans-serif;
     color: white;
 }
@@ -95,6 +95,8 @@ input[type="text"] {
     font-size: 14px;
     padding-top: 14px;
     color: white;
+    letter-spacing: 1px;
+    line-height: 20px;
 }
 
 .random a, .guess a{
@@ -132,4 +134,8 @@ a{
     z-index: 1;
     top: -200px;
     left: -120px;
+}
+
+.footer-container a {
+    text-decoration:underline;
 }
