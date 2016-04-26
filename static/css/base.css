@@ -46,6 +46,10 @@ nav {
     animation: pokeball-animation 7s infinite;
 }
 
+.pokeball:hover{
+    -webkit-filter: brightness(90%);
+}
+
 .title {
     display: inline-block;
     vertical-align: top;

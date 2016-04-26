@@ -59,7 +59,7 @@ form {
 .sprite {
     margin: auto;
     display: block;
-    max-width: 200px;
+    max-height: 350px;
 }
 
 .name {
@@ -136,13 +136,33 @@ input[type="image"] {
     width: 85%;
     background-color: black;
     border-radius: 8px;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.9), 0 0 32px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.9), 0 0 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+@keyframes bar-animation {
+    0%   {
+        filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        -o-filter: brightness(100%);
+        -ms-filter: brightness(100%);
+    }
+    100% {
+        filter: brightness(90%);
+        -webkit-filter: brightness(90%);
+        -moz-filter: brightness(90%);
+        -o-filter: brightness(90%);
+        -ms-filter: brightness(90%);
+    }
 }
 
 .bar-inner {
     width: 0%;
     height: 100%;
     border-radius: 4px;
+    animation-name: bar-animation;
+    animation: bar-animation 1s infinite;
+    animation-direction: alternate;
 }
 
 .outer2 .header{
@@ -178,7 +198,7 @@ input[type="image"] {
 }
 
 .ability, .moves span {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     padding: 4px 6px 4px 6px;
     border: solid #999999 1px;
@@ -186,12 +206,13 @@ input[type="image"] {
     margin-bottom: 8px;
 }
 
-.types-and-abilities {
-    margin-top: 24px;
+.ability:hover, .moves span:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid #777777 1px;
 }
 
-.moves{
-
+.types-and-abilities {
+    margin-top: 24px;
 }
 
 .moves .header{
@@ -200,6 +221,6 @@ input[type="image"] {
     margin-bottom: 10px;
 }
 
-.all-moves{
-    display:none;
+.expand-collapse {
+    cursor: pointer;
 }

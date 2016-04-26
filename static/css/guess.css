@@ -56,8 +56,6 @@
 .guess-outer {
     width: 100%;
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-    border-top: solid #008FAF 1px;
-    border-bottom: solid #008FAF 1px;
     margin-bottom: 30px;
     margin-top: 20px;
 }

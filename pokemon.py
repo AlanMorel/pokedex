@@ -31,6 +31,8 @@ class Pokemon:
         for i in range(len(pokemon['moves'])):
             self.moves.append(pokemon['moves'][i]['name'].replace("-", " ").title())
 
+        self.moves.sort()
+
         self.stats = Stats(pokemon)
 
         data.pokemon_cache[int(self.id)] = self
