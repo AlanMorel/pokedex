@@ -1,19 +1,18 @@
 function showHint(str) {
     if (str.length < 1) {
         document.querySelector(".tooltiptext").style.visibility = "hidden";
-        return;
     } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200 && xmlhttp.responseText.length > 0) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200 && request.responseText.length > 0) {
                 document.querySelector(".tooltiptext").style.visibility = "visible";
-                document.querySelector(".tooltiptext").innerHTML = "Suggestions: " + xmlhttp.responseText;
+                document.querySelector(".tooltiptext").innerHTML = "Suggestions: " + request.responseText;
             } else {
                 document.querySelector(".tooltiptext").style.visibility = "hidden";
                 return;
             }
         };
-        xmlhttp.open("GET", "/hint?pokemon=" + str, true);
-        xmlhttp.send();
+        request.open("GET", "/api?q=" + str, true);
+        request.send();
     }
 }

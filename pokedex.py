@@ -33,21 +33,22 @@ def guess_page():
 
     return pokemon_profile("guess.html", pokemon)
 
-@app.route('/hint')
-def hint_page():
+@app.route('/api')
+def api_page():
 
-    hint = request.args.get('pokemon')
+    query = request.args.get('q')
 
-    if len(hint) < 1:
+    if len(query) < 1:
         return ""
 
     hints = ""
     size = 0
 
+    query = query.lower()
+
     for pokemon in name_cache:
         a = pokemon.lower().strip()
-        b = hint.lower()
-        if a.find(b) == 0:
+        if a.find(query) == 0:
             hints += pokemon.strip() + ", "
             size += 1
             if size > 30:
