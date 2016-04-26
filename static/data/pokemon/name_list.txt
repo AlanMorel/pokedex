@@ -26,10 +26,10 @@ Pikachu
 Raichu
 Sandshrew
 Sandslash
-Nidoran♀
+Nidoran
 Nidorina
 Nidoqueen
-Nidoran♂
+Nidoran
 Nidorino
 Nidoking
 Clefairy
@@ -666,7 +666,7 @@ Spewpa
 Vivillon
 Litleo
 Pyroar
-Flabébé
+Flabebe
 Floette
 Florges
 Skiddo

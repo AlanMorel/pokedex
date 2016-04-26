@@ -10,10 +10,11 @@ class Pokemon:
         national_id = pokemon['national_id']
 
         self.id = get_id(national_id)
-        self.name = pokemon['name']
+        self.name = pokemon['name'].replace("-", " ").title()
 
         self.description = get_description(pokemon)
         self.sprite = "./static/images/art/" + str(national_id) + ".png"
+        self.svg = "./static/images/svg/" + str(national_id) + ".svg"
         self.sound = "./static/sound/" + str(national_id) + ".ogg"
 
         self.weight = float(int(pokemon['weight']) / 10)
@@ -97,4 +98,9 @@ def get_id(national_id):
 
 def get_description(pokemon):
     uri = pokemon['descriptions'][-1]['resource_uri']
-    return data.query(uri)['description']
+    description = data.query(uri)['description']
+
+    description = description.replace("POKMON", "Pokémon")
+    description = description.replace(pokemon['name'].upper(), pokemon['name'])
+
+    return description

@@ -113,12 +113,12 @@ a{
     color:white;
 }
 
-.tooltip {
+.suggestions-input {
     position: relative;
     display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.suggestions {
     visibility: hidden;
     font-size: 18px;
     width: 600px;
