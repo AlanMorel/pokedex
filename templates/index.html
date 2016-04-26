@@ -16,10 +16,13 @@
         </nav>
         <div class="search-prompt">
             <form method="get" action="{{ url_for('pokemon_page') }}">
-                <div class="prompt">Search for a Pokémon or type:</div>
-                <div class="input">
-                    <input type="text" name="name">
-                    <input type="submit" id="search-submit" value="" class="search-icon"/>
+                <div class="prompt">Search for a Pokémon:</div>
+                <div class="tooltip">
+                    <div class="input">
+                        <input type="text" name="name" onkeyup="showHint(this.value)">
+                        <input type="submit" id="search-submit" value="" class="search-icon"/>
+                    </div>
+                    <span class="tooltiptext">Tooltip text</span>
                 </div>
             </form>
         </div>
@@ -35,4 +38,5 @@
             </div>
         </div>
     </body>
+    <script src="/static/js/index.js"></script>
 </html>

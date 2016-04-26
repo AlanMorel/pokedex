@@ -35,10 +35,24 @@ nav{
     padding-top: 100px;
  }
 
+@keyframes pokemon-animation {
+    0% {
+        background-position-y:-5px;
+    }
+    100% {
+         background-position-y:5px;
+    }
+}
+.guess, .search-prompt, .random {
+    animation-name: pokemon-animation;
+    animation: pokemon-animation 1s infinite;
+    animation-direction: alternate;
+}
+
 form{
     vertical-align: top;
     text-align:center;
-    padding-top:100px;
+    padding-top:150px;
 }
 
 input[type="text"] {
@@ -97,4 +111,25 @@ input[type="text"] {
 
 a{
     color:white;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    font-size: 18px;
+    width: 600px;
+    height: 110px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    top: -200px;
+    left: -120px;
 }
