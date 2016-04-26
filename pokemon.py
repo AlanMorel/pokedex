@@ -22,9 +22,14 @@ class Pokemon:
         self.type1 = pokemon['types'][0]["name"]
         self.type2 = pokemon['types'][1]["name"] if len(pokemon['types']) > 1 else "none"
 
-        self.ability1 = pokemon['abilities'][0]['name'].capitalize()
-        self.ability2 = pokemon['abilities'][1]['name'].capitalize() if len(pokemon['abilities']) > 1 else ""
-        self.ability3 = pokemon['abilities'][2]['name'].capitalize() if len(pokemon['abilities']) > 2 else ""
+        self.ability1 = pokemon['abilities'][0]['name'].replace("-", " ").title()
+        self.ability2 = pokemon['abilities'][1]['name'].replace("-", " ").title() if len(pokemon['abilities']) > 1 else ""
+        self.ability3 = pokemon['abilities'][2]['name'].replace("-", " ").title() if len(pokemon['abilities']) > 2 else ""
+
+        self.moves = []
+
+        for i in range(len(pokemon['moves'])):
+            self.moves.append(pokemon['moves'][i]['name'].replace("-", " ").title())
 
         self.stats = Stats(pokemon)
 

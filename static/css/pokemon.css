@@ -3,7 +3,7 @@
     margin: auto;
 }
 
-.description, .weight-and-height, .types-and-abilities, .stats-header {
+.description, .weight-and-height, .types-and-abilities, .stats-header, .moves {
     width: 600px;
     margin: auto;
 }
@@ -42,7 +42,6 @@ form {
 
 .weight-and-height .header, .types-and-abilities .header {
     font-size: 26px;
-    /* margin-bottom: 50px; */
     font-family: 'Source Sans Pro', sans-serif;
     width: 295px;
     display: inline-block;
@@ -60,6 +59,7 @@ form {
 .sprite {
     margin: auto;
     display: block;
+    max-width: 200px;
 }
 
 .name {
@@ -158,7 +158,7 @@ input[type="image"] {
     font-size: 36px;
 }
 
-.weight-and-height img, .types-and-abilities img {
+.weight-and-height img, .types-and-abilities img, .moves img {
     max-height: 28px;
     margin-right: 12px;
     vertical-align: bottom;
@@ -177,7 +177,7 @@ input[type="image"] {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.ability {
+.ability, .moves span {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     padding: 4px 6px 4px 6px;
@@ -188,4 +188,18 @@ input[type="image"] {
 
 .types-and-abilities {
     margin-top: 24px;
+}
+
+.moves{
+
+}
+
+.moves .header{
+    font-size: 26px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 10px;
+}
+
+.all-moves{
+    display:none;
 }

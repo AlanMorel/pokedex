@@ -51,6 +51,7 @@ def pokemon_profile(html_page, pokemon):
                            ability1=pokemon.ability1,
                            ability2=pokemon.ability2,
                            ability3=pokemon.ability3,
+                           moves=pokemon.moves,
                            hp=pokemon.stats.hp,
                            attack=pokemon.stats.attack,
                            special_attack=pokemon.stats.special_attack,

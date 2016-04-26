@@ -14,3 +14,15 @@ document.querySelector(".special-defense").style.backgroundColor = barColors[3];
 function playSound() {
     sound.play();
 }
+
+function toggle(){
+    var moves = document.querySelector(".all-moves");
+    var icon = document.querySelector(".expand-collapse");
+    if(moves.style.display == "none"){
+        moves.style.display = "block";
+        icon.src = "/static/images/collapse.png"
+    } else {
+        moves.style.display = "none";
+        icon.src = "/static/images/expand.png"
+    }
+}
