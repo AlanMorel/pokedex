@@ -1,9 +1,8 @@
 function showSuggestions(str) {
     var suggestions = document.querySelector(".suggestions");
 
-    suggestions.style.visibility = "hidden";
-
-    if (str.length < 1) {
+    if (!str || str.length < 1) {
+        suggestions.style.visibility = "hidden";
         return;
     }
 
@@ -11,11 +10,14 @@ function showSuggestions(str) {
 
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200 && request.responseText.length > 0) {
-            suggestions.style.visibility = "visible";
             suggestions.innerHTML = "Suggestions: " + request.responseText;
+            suggestions.style.visibility = "visible";
+        } else {
+            suggestions.style.visibility = "hidden";
         }
     };
 
     request.open("GET", "/api?q=" + str, true);
     request.send();
+    suggestions.style.visibility = "visible";
 }
