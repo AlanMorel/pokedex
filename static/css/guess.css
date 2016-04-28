@@ -24,6 +24,7 @@
         transform: translate3d(16px, 0, 0);
     }
 }
+
 .hide-pokemon {
     filter: brightness(0%);
     -webkit-filter: brightness(0%);
@@ -31,6 +32,7 @@
     -o-filter: brightness(0%);
     -ms-filter: brightness(0%);
 }
+
 @keyframes show-animation {
     0% {
         filter: brightness(0%);
@@ -47,6 +49,7 @@
         -ms-filter: brightness(100%);
     }
 }
+
 .show-pokemon {
     animation-name: show-animation;
     animation: show-animation 3s infinite;
@@ -59,19 +62,23 @@
     margin-bottom: 30px;
     margin-top: 20px;
 }
+
 .guess-inner {
     width: 600px;
     margin: auto;
     padding-top: 12px;
     padding-bottom: 12px;
 }
+
 .guess-inner input[type="text"] {
     width: 440px;
     font-size: 36px;
 }
+
 .hide {
     display: none;
 }
+
 .show-top {
     display: inline-block;
 }

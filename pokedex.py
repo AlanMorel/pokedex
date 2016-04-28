@@ -33,6 +33,7 @@ def guess_page():
 
     return pokemon_profile("guess.html", pokemon)
 
+
 @app.route('/api')
 def api_page():
 
@@ -41,18 +42,13 @@ def api_page():
     if len(query) < 1:
         return ""
 
-    suggestions = ""
-    size = 0
+    max_size = 30
 
-    for pokemon in name_cache:
-        pokemon_name = pokemon.lower().strip()
-        if pokemon_name.find(query) == 0:
-            suggestions += pokemon.strip() + ", "
-            size += 1
-            if size > 30:
-                break
+    suggestions = [pokemon.strip() for pokemon in name_cache if pokemon.lower().strip().find(query) == 0]
 
-    return str(suggestions[:-2])
+    results = ", ".join(suggestions[0:max_size])
+
+    return results
 
 
 def pokemon_profile(html_page, pokemon):
