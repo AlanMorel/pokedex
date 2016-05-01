@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
+@import url(https://fonts.googleapis.com/css?family=Lato:900,400,300,100);
 
 html {
     font-family: Verdana, Geneva, sans-serif;
@@ -43,7 +43,7 @@ nav {
     width: 80px;
     margin: 12px;
     animation-name: pokeball-animation;
-    animation: pokeball-animation 7s infinite;
+    animation: pokeball-animation 8s infinite;
 }
 
 .pokeball:hover{

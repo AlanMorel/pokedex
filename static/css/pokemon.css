@@ -224,3 +224,7 @@ input[type="image"] {
 .expand-collapse {
     cursor: pointer;
 }
+
+form img, .search-icon {
+    cursor:pointer;
+}

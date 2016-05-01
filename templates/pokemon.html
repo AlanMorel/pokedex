@@ -106,9 +106,9 @@
                 <br>
                 <input type="text" name="name">
                 <input type="submit" id="search-submit" value="" class="search-icon"/>
-                <a href="{{ url_for('pokemon_page') }}?name=random">
+                <span onclick="getRandomPokemon('{{ request.url_root }}')">
                     <img src="/static/images/random.png">
-                </a>
+                </span>
                 <a href="{{ url_for('guess_page') }}">
                     <img src="/static/images/guess.png">
                 </a>
@@ -123,4 +123,5 @@
       var moves = {{ moves|tojson }};
     </script>
     <script src="/static/js/pokemon.js"></script>
+    <script src="/static/js/random.js"></script>
 </html>

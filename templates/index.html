@@ -14,6 +14,14 @@
                 <img src="/static/images/logo.png" class="logo">
             </a>
         </nav>
+        <div class="header">
+            <img src="/static/images/header.png" alt=""/>
+            <div>
+                <span class="header-title">Pokédex</span>
+                <br/>
+                Search. Learn. Play.
+            </div>
+        </div>
         <div class="search-prompt">
             <form method="get" action="{{ url_for('pokemon_page') }}">
                 <div class="prompt">Search for a Pokémon:</div>
@@ -27,16 +35,22 @@
             </form>
         </div>
         <div class="random">
-            <a href="/pokemon?name=random">Learn about a random Pokémon!</a>
+            <span onclick="getRandomPokemon('{{ request.url_root }}')">Learn about a random Pokémon!</span>
         </div>
         <div class="guess">
             <a href="/guess">Play "Who's that Pokémon?"</a>
         </div>
         <div class="footer-container">
             <div class="footer-1">Pokédex</div>
-            <div class="footer-2">This Pokédex was created by <a href="http://alanmorel.com/">Alan Morel</a> using <a href="http://pokeapi.co/">PokéAPI</a> for data. The backend is written in Python using <a href="http://flask.pocoo.org/">Flask</a>, PIL, and Requests. The frontend is written in HTML5, Javascript and CSS 3. This was created as a dual-class final project for <a href="http://cs.nyu.edu/courses/spring16/CSCI-UA.0380-002/assignments/final-project/">Drawing on the Web</a> and <a href="http://foureyes.github.io/csci-ua.0380-spring2016-004/assignments/final-project.html">Python for Applications</a>. <a href="http://www.pokemon.com/">Pokémon</a> is copyright The Pokémon Company and <a href="http://www.nintendo.com/">Nintendo</a>.
+            <div class="footer-2">This Pokédex was created by <a href="http://alanmorel.com/">Alan Morel</a> using <a
+                    href="http://pokeapi.co/">PokéAPI</a> for data. The backend is written in Python using <a
+                    href="http://flask.pocoo.org/">Flask</a>, PIL, and Requests. The frontend is written in HTML5, Javascript and CSS 3. This was created as a dual-class final project for
+                <a href="http://cs.nyu.edu/courses/spring16/CSCI-UA.0380-002/assignments/final-project/">Drawing on the Web</a> and
+                <a href="http://foureyes.github.io/csci-ua.0380-spring2016-004/assignments/final-project.html">Python for Applications</a>.
+                <a href="http://www.pokemon.com/">Pokémon</a> is copyright The Pokémon Company and <a href="http://www.nintendo.com/">Nintendo</a>.
             </div>
         </div>
     </body>
     <script src="/static/js/index.js"></script>
+    <script src="/static/js/random.js"></script>
 </html>

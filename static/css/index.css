@@ -1,12 +1,64 @@
 html{
-    background-color: #71B5D7;
+    background-color: #FFFFFF;
 }
 
 nav{
     margin-bottom:0;
 }
 
-.guess, .search-prompt, .random{
+.header-title{
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.header {
+   position: relative;
+   width: 100%;
+   height: 300px;
+   text-align: center;
+   overflow: hidden;
+   background: -webkit-linear-gradient(left,#111,black,#111);
+   background: -o-linear-gradient(left,#111,black,#111);
+   background: -moz-linear-gradient(left,#111,black,#111);
+   background: linear-gradient(to right,#111,black,#111);
+}
+
+.header img {
+    width: 750px;
+    position: relative;
+    top: -75%;
+    filter: blur(3px) brightness(50%);
+    -webkit-filter: blur(3px) brightness(50%);
+    -moz-filter: blur(3px) brightness(50%);
+    -o-filter: blur(3px) brightness(50%);
+    -ms-filter: blur(3px) brightness(50%);
+    animation-name: header-animation;
+    animation: header-animation 10s infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+.header div {
+   position: absolute;
+   top: 75px;
+   left: 0;
+   width: 100%;
+}
+
+@keyframes header-animation {
+    0% {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.header, .guess, .search-prompt, .random{
     color: white;
     font-family: "lato";
     font-weight: 300;
@@ -43,6 +95,7 @@ nav{
          background-position-y:5px;
     }
 }
+
 .guess, .search-prompt, .random {
     animation-name: pokemon-animation;
     animation: pokemon-animation 1s infinite;
@@ -99,7 +152,7 @@ input[type="text"] {
     line-height: 20px;
 }
 
-.random a, .guess a{
+.random span, .guess a{
     color: white;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 16px;

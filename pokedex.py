@@ -7,6 +7,7 @@ app = Flask(__name__)
 max_pokemon_id = 647
 name_cache = []
 
+
 @app.route('/')
 def index_page():
     return render_template('index.html')
@@ -16,9 +17,6 @@ def index_page():
 def pokemon_page():
 
     query = request.args.get('name')
-
-    if query in 'random':
-        query = str(randint(1, max_pokemon_id))
 
     pokemon = load_pokemon(query)
 
