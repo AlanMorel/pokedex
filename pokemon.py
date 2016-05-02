@@ -1,6 +1,7 @@
 from PIL import Image
 import data
 from stats import Stats
+from description import Description
 
 
 class Pokemon:
@@ -11,7 +12,7 @@ class Pokemon:
 
         self.id = get_id(national_id)
         self.name = pokemon['name'].replace("-", " ").title()
-        self.description = get_description(pokemon)
+        self.description = Description(pokemon)
 
         self.sprite = "./static/images/art/" + str(national_id) + ".png"
         self.svg = "./static/images/svg/" + str(national_id) + ".svg"
@@ -83,13 +84,3 @@ def get_id(national_id):
     if national_id < 100:
         return "0" + str(national_id)
     return str(national_id)
-
-
-def get_description(pokemon):
-    uri = pokemon['descriptions'][-1]['resource_uri']
-    description = data.query(uri)['description']
-
-    description = description.replace("POKMON", "Pokémon")
-    description = description.replace(pokemon['name'].upper(), pokemon['name'])
-
-    return description
