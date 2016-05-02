@@ -178,7 +178,7 @@ a{
     visibility: hidden;
     font-size: 17px;
     width: 600px;
-    height: 110px;
+    height: 96px;
     background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
     text-align: left;
@@ -188,7 +188,8 @@ a{
     z-index: 1;
     top: -200px;
     left: -120px;
-    line-height: 28px;
+    line-height: 35px;
+    overflow: scroll;
 }
 
 .footer-container a {
@@ -198,7 +199,8 @@ a{
 .suggestions a {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    padding: 2px 4px 2px 4px;
+    padding: 4px;
+    border: solid #3D72B5 1px;
 }
 
 .suggestions a:hover{

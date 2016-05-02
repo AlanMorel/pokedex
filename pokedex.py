@@ -39,10 +39,9 @@ def api_page():
     if len(query) < 1:
         return ""
 
-    max_return_size = 25
-    suggestions = sorted(["<a href='/pokemon?name=" + pokemon.strip() + "'>" + pokemon.strip() + "</a>" for pokemon in name_cache if pokemon.lower().strip().find(query) == 0])
+    suggestions = ["<a href='/pokemon?name=" + pokemon.strip().lower() + "'>" + pokemon.strip() + "</a>" for pokemon in name_cache if pokemon.lower().strip().find(query) == 0]
 
-    return " ".join(suggestions[0:max_return_size])
+    return " ".join(suggestions)
 
 
 def pokemon_profile(html_page, pokemon):
@@ -75,7 +74,7 @@ def pokemon_profile(html_page, pokemon):
 
 
 with open("./static/data/pokemon/name_list.txt") as f:
-    name_cache = f.readlines()
+    name_cache = sorted(f.readlines())
 
 app.debug = True
 app.run(threaded=True)
