@@ -23,7 +23,7 @@
             <div class="name hide">{{name}}<img src="/static/images/sound.png" class="sound" onclick="playSound()">
             </div>
         </div>
-        <div class="description">{{description}}</div>
+        <div class="description">{{hidden_description}}</div>
         <div class="guess-outer">
             <div class="guess-inner">
                 <input type="text" name="guess" placeholder="Who's That Pokémon?">
@@ -129,6 +129,7 @@
       var pokemon = "{{name}}";
       var sound = new Audio("{{sound}}");
       var moves = {{ moves|tojson }};
+      var normalDescription = "{{normal_description}}";
     </script>
     <script src="/static/js/pokemon.js"></script>
     <script src="/static/js/guess.js"></script>

@@ -9,6 +9,12 @@ var gradientSpeed = 0.003;
 
 function updateGradient() {
 
+    outer = document.querySelector(".guess-outer");
+
+    if (!outer){
+        return;
+    }
+
     var c0_0 = colors[colorIndices[0]];
     var c0_1 = colors[colorIndices[1]];
     var c1_0 = colors[colorIndices[2]];
@@ -25,7 +31,7 @@ function updateGradient() {
     var b2 = Math.round(i_step * c1_0[2] + step * c1_1[2]);
     var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
 
-    document.querySelector(".guess-outer").style.background = "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))";
+    outer.style.background = "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))";
 
     step += gradientSpeed;
 

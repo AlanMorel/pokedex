@@ -25,6 +25,7 @@ function showPokemon(){
 
     sprite.className = "sprite show-pokemon"
     sprite.style.animationPlayState = "running";
+    document.querySelector('.description').innerHTML = normalDescription;
     document.querySelector('.id').className = "id show-top";
     document.querySelector('.name').className = "name show-top";
     document.querySelector('.guess-outer').className = "hide";
