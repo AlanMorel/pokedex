@@ -80,10 +80,9 @@ class Pokemon:
 def get_id(national_id):
     if national_id < 10:
         return "00" + str(national_id)
-    elif national_id < 100:
+    if national_id < 100:
         return "0" + str(national_id)
-    else:
-        return str(national_id)
+    return str(national_id)
 
 
 def get_description(pokemon):

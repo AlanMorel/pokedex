@@ -26,11 +26,11 @@ class Stats:
                 )
 
     def get_bar_colors(self):
-        return [Stats.red if i < 30 else
-                (Stats.yellow if i < 50 else
-                    (Stats.green if i < 65 else
+        return [Stats.red if value < 30 else
+                (Stats.yellow if value < 50 else
+                    (Stats.green if value < 65 else
                         Stats.purple))
-                for i in self.get_bar_values()]
+                for value in self.get_bar_values()]
 
 
 def get_bar_value(value):

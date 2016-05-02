@@ -4,7 +4,6 @@ from data import load_pokemon
 
 app = Flask(__name__)
 
-max_pokemon_id = 647
 name_cache = []
 
 
@@ -25,6 +24,7 @@ def pokemon_page():
 @app.route('/guess')
 def guess_page():
 
+    max_pokemon_id = 647
     query = str(randint(1, max_pokemon_id))
     pokemon = load_pokemon(query)
 
@@ -39,11 +39,10 @@ def api_page():
     if len(query) < 1:
         return ""
 
-    max_size = 30
-
+    max_return_size = 30
     suggestions = [pokemon.strip() for pokemon in name_cache if pokemon.lower().strip().find(query) == 0]
 
-    results = ", ".join(suggestions[0:max_size])
+    results = ", ".join(suggestions[0:max_return_size])
 
     return results
 
@@ -77,12 +76,8 @@ def pokemon_profile(html_page, pokemon):
                            )
 
 
-def load_name_cache():
-    with open("./static/data/pokemon/name_list.txt") as f:
-        global name_cache
-        name_cache = f.readlines()
-
-load_name_cache()
+with open("./static/data/pokemon/name_list.txt") as f:
+    name_cache = f.readlines()
 
 app.debug = True
 app.run(threaded=True)
