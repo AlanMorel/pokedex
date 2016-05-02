@@ -99,7 +99,8 @@ nav{
 .guess, .search-prompt, .random {
     animation-name: pokemon-animation;
     animation: pokemon-animation 1s infinite;
-    animation-direction: alternate;
+    animation-direction: alternate-reverse;
+    transition-timing-function: ease-in-out;
 }
 
 form{
@@ -175,10 +176,10 @@ a{
 
 .suggestions {
     visibility: hidden;
-    font-size: 18px;
+    font-size: 17px;
     width: 600px;
     height: 110px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
     text-align: left;
     border-radius: 6px;
@@ -187,8 +188,19 @@ a{
     z-index: 1;
     top: -200px;
     left: -120px;
+    line-height: 28px;
 }
 
 .footer-container a {
     text-decoration:underline;
+}
+
+.suggestions a {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 2px 4px 2px 4px;
+}
+
+.suggestions a:hover{
+    background-color: rgba(0, 0, 0, 0.2);
 }

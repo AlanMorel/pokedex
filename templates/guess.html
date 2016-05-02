@@ -41,19 +41,14 @@
             <div class="header"><img src="/static/images/types.png">Types</div>
             <div class="header"><img src="/static/images/ability.png">Abilities</div>
             <div class="value">
-                <span class="type-icon type-{{type1}}">{{type1}}</span>
-                <span class="type-icon type-{{type2}}">{{type2}}</span>
+                {% for type in types %}
+                <span class="type-icon type-{{type}}">{{ type }}</span>
+                {% endfor %}
             </div>
             <div class="value">
-                {% if ability1 != "" %}
-                <span class="ability">{{ability1}}</span>
-                {% endif %}
-                {% if ability2 != "" %}
-                <span class="ability">{{ability2}}</span>
-                {% endif %}
-                {% if ability3 != "" %}
-                <span class="ability">{{ability3}}</span>
-                {% endif %}
+                {% for ability in abilities %}
+                <span class="ability">{{ ability }}</span>
+                {% endfor %}
             </div>
         </div>
         <div class="moves">
@@ -62,6 +57,9 @@
                 {% for move in moves %}
                 <span>{{ move }}</span>
                 {% endfor %}
+            </div>
+            <div class="moves-prompt" style="display:block">
+                Click to show moves.
             </div>
         </div>
         <div class="stats-header">

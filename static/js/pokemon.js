@@ -18,6 +18,7 @@ function playSound() {
 function toggle(){
     var moves = document.querySelector(".all-moves");
     var icon = document.querySelector(".expand-collapse");
+    document.querySelector(".moves-prompt").style.display = moves.style.display;
     if(moves.style.display == "none"){
         moves.style.display = "block";
         icon.src = "/static/images/collapse.png"

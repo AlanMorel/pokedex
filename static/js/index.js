@@ -10,7 +10,7 @@ function showSuggestions(str) {
 
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200 && request.responseText.length > 0) {
-            suggestions.innerHTML = "Suggestions: " + request.responseText;
+            suggestions.innerHTML = request.responseText;
             suggestions.style.visibility = "visible";
         } else {
             suggestions.style.visibility = "hidden";

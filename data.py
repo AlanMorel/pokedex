@@ -49,7 +49,7 @@ def load_from_json(key):
             with open('./static/data/pokemon/name/' + key + '.json') as file:
                 return json.load(file)
     except:
-        return None
+        pass
 
     return None
 
