@@ -20,19 +20,9 @@ class Pokemon:
         self.weight = float(int(pokemon['weight']) / 10)
         self.height = float(int(pokemon['height']) / 10)
 
-        self.type1 = pokemon['types'][0]["name"]
-        self.type2 = pokemon['types'][1]["name"] if len(pokemon['types']) > 1 else "none"
-
-        self.ability1 = pokemon['abilities'][0]['name'].replace("-", " ").title()
-        self.ability2 = pokemon['abilities'][1]['name'].replace("-", " ").title() if len(pokemon['abilities']) > 1 else ""
-        self.ability3 = pokemon['abilities'][2]['name'].replace("-", " ").title() if len(pokemon['abilities']) > 2 else ""
-
-        self.moves = []
-
-        for move in pokemon['moves']:
-            self.moves.append(move['name'].replace("-", " ").title())
-
-        self.moves.sort()
+        self.types = [type['name'] for type in pokemon['types']]
+        self.abilities = [ability['name'].replace("-", " ").title() for ability in pokemon['abilities']]
+        self.moves = sorted([move['name'].replace("-", " ").title() for move in pokemon['moves']])
 
         self.stats = Stats(pokemon)
 
