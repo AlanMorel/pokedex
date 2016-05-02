@@ -17,7 +17,6 @@ def index_page():
 def pokemon_page():
 
     query = request.args.get('name')
-
     pokemon = load_pokemon(query)
 
     return pokemon_profile("pokemon.html", pokemon)

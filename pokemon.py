@@ -11,8 +11,8 @@ class Pokemon:
 
         self.id = get_id(national_id)
         self.name = pokemon['name'].replace("-", " ").title()
-
         self.description = get_description(pokemon)
+
         self.sprite = "./static/images/art/" + str(national_id) + ".png"
         self.svg = "./static/images/svg/" + str(national_id) + ".svg"
         self.sound = "./static/sound/" + str(national_id) + ".ogg"
@@ -29,8 +29,8 @@ class Pokemon:
 
         self.moves = []
 
-        for i in range(len(pokemon['moves'])):
-            self.moves.append(pokemon['moves'][i]['name'].replace("-", " ").title())
+        for move in pokemon['moves']:
+            self.moves.append(move['name'].replace("-", " ").title())
 
         self.moves.sort()
 
