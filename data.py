@@ -23,15 +23,18 @@ def load_pokemon(query):
 
     pokemon = load_from_cache(query)
 
-    if pokemon is None:
-        data = load_from_json(query)
-        pokemon = Pokemon(data)
+    try:
+        if pokemon is None:
+            data = load_from_json(query)
+            pokemon = Pokemon(data)
 
-    if pokemon is None:
-        data = load_from_api(query)
-        pokemon = Pokemon(data)
+        if pokemon is None:
+            data = load_from_api(query)
+            pokemon = Pokemon(data)
 
-    return pokemon
+        return pokemon
+    except:
+        return None
 
 
 def load_from_cache(key):

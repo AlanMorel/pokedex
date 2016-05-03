@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from random import randint
 from data import load_pokemon
 
@@ -16,7 +16,10 @@ def index_page():
 def pokemon_page():
 
     query = request.args.get('name')
+
     pokemon = load_pokemon(query)
+    if pokemon is None:
+        return redirect(url_for('index_page'))
 
     return pokemon_profile("pokemon.html", pokemon)
 
@@ -26,7 +29,10 @@ def guess_page():
 
     max_pokemon_id = 647
     query = str(randint(1, max_pokemon_id))
+
     pokemon = load_pokemon(query)
+    if pokemon is None:
+        return redirect(url_for('index_page'))
 
     return pokemon_profile("guess.html", pokemon)
 
