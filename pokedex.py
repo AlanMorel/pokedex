@@ -17,6 +17,9 @@ def pokemon_page():
 
     query = request.args.get('name')
 
+    if query is None:
+        return redirect(url_for('index_page'))
+
     pokemon = load_pokemon(query)
     if pokemon is None:
         return redirect(url_for('index_page'))
@@ -42,7 +45,7 @@ def api_page():
 
     query = request.args.get('q').lower()
 
-    if len(query) < 1:
+    if query is None or len(query) < 1:
         return ""
 
     suggestions = ["<a href='/pokemon?name=" + pokemon.strip().lower() + "'>" + pokemon.strip() + "</a>" for pokemon in name_cache if pokemon.lower().strip().find(query) == 0]
