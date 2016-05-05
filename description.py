@@ -4,9 +4,13 @@ import data
 class Description:
 
     def __init__(self, pokemon):
-        uri = pokemon['descriptions'][-1]['resource_uri']
-        self.data = data.query(uri)['description']
         self.name = pokemon['name']
+        try:
+            uri = pokemon['descriptions'][-1]['resource_uri']
+            self.data = data.query(uri)['description']
+        except:
+            self.data = "Description of Pokémon goes here. API is down! :("
+
 
     def get_cleaned_description(self):
         description = self.data.replace("POKMON", "Pokémon")
