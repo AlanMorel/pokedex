@@ -84,7 +84,7 @@ def pokemon_profile(html_page, pokemon):
 
 
 with open("./static/data/pokemon/name_list.txt") as f:
-    name_cache = sorted(f.readlines())
+    name_cache = f.readlines()
 
 app.debug = True
 app.run(threaded=True)
