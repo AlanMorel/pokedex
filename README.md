@@ -1,20 +1,24 @@
-# pokedex
-
+# Pokédex
 ![alt tag](http://i.imgur.com/AYutZOF.png)
+**Pokédex** is a fun web app that you can use to learn more about Pokemon and play the famous "Who's that Pokemon?" game. It is a Flask fullstack web app written using Python, HTML, CSS and JavaScript, powered by data provided by PokéAPI. 
 
-### Live Demo
+## APIs
+* [PokéAPI](https://pokeapi.co/) - The Pokémon RESTful API
 
+## Technologies
+* [Flask](http://flask.pocoo.org/) -  microframework for Python
+* [PIL](http://www.pythonware.com/products/pil/) - Python Imaging Library
+* [Requests](http://docs.python-requests.org/en/master/) - Non-GMO HTTP library for Python
+
+## Live Demo
 Check out the live demo hosted on [PythonAnywhere](http://alanmorel.pythonanywhere.com).
 
-### Dual-class Final Project
+## Dual-class Final Project
   * Drawing on the Web
   * Python for Applications
 
-### Created Using
-  * PokéAPI
-  * Flask
-  * PIL
-  * Requests
-  * JSON
+## License
+**Pokédex** is licensed under the [MIT license](LICENSE).
 
+## Note
 Pokémon is copyright The Pokémon Company and Nintendo.
