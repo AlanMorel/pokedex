@@ -13,6 +13,11 @@
 ## Live Demo
 Check out the live demo hosted on [PythonAnywhere](http://alanmorel.pythonanywhere.com).
 
+## Screenshots
+![alt tag](http://i.imgur.com/qe23FUy.png)
+![alt tag](http://i.imgur.com/o8QkLgg.png)
+![alt tag](http://i.imgur.com/dBqJ5r2.png)
+
 ## Dual-class Final Project
   * Drawing on the Web
   * Python for Applications
