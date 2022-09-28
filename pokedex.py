@@ -1,8 +1,12 @@
+import os
 from random import randint
 
+from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, url_for
 
 from data import load_pokemon
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -89,4 +93,4 @@ with open("./static/data/pokemon/name_list.txt") as f:
     name_cache = f.readlines()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=os.environ.get("PORT"))

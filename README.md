@@ -13,6 +13,26 @@
 * [PIL](http://www.pythonware.com/products/pil/) - Python Imaging Library
 * [Requests](http://docs.python-requests.org/en/master/) - Non-GMO HTTP library for Python
 
+## Setup
+
+Clone repository
+
+```sh
+git clone https://github.com/AlanMorel/pokedex
+```
+
+Create a `.env` file
+
+```sh
+PORT=8088
+```
+
+Run using Docker
+
+```sh
+docker compose up
+```
+
 ## Live Demo
 
 Check out the live demo hosted on [PythonAnywhere](https://alanmorel.pythonanywhere.com).
