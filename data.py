@@ -1,6 +1,8 @@
-from pokemon import Pokemon
 import json
+
 import requests
+
+from pokemon import Pokemon
 
 API_URL = 'http://pokeapi.co'
 

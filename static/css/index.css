@@ -1,26 +1,26 @@
-html{
-    background-color: #FFFFFF;
+html {
+    background-color: #ffffff;
 }
 
-nav{
-    margin-bottom:0;
+nav {
+    margin-bottom: 0;
 }
 
-.header-title{
+.header-title {
     font-size: 100px;
     font-weight: 900;
 }
 
 .header {
-   position: relative;
-   width: 100%;
-   height: 300px;
-   text-align: center;
-   overflow: hidden;
-   background: -webkit-linear-gradient(left,#111,black,#111);
-   background: -o-linear-gradient(left,#111,black,#111);
-   background: -moz-linear-gradient(left,#111,black,#111);
-   background: linear-gradient(to right,#111,black,#111);
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    overflow: hidden;
+    background: -webkit-linear-gradient(left, #111, black, #111);
+    background: -o-linear-gradient(left, #111, black, #111);
+    background: -moz-linear-gradient(left, #111, black, #111);
+    background: linear-gradient(to right, #111, black, #111);
 }
 
 .header img {
@@ -39,10 +39,10 @@ nav{
 }
 
 .header div {
-   position: absolute;
-   top: 75px;
-   left: 0;
-   width: 100%;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
 }
 
 @keyframes header-animation {
@@ -58,7 +58,10 @@ nav{
     }
 }
 
-.header, .guess, .search-prompt, .random{
+.header,
+.guess,
+.search-prompt,
+.random {
     color: white;
     font-family: "lato";
     font-weight: 300;
@@ -69,44 +72,46 @@ nav{
 
 .guess {
     height: 200px;
-    background: #F75555 url("/static/images/bulbasaur.png") left no-repeat;
+    background: #f75555 url("/static/images/bulbasaur.png") left no-repeat;
     text-align: center;
     padding-top: 100px;
- }
+}
 
 .search-prompt {
     height: 300px;
-    background: #559DF7 url("/static/images/pichu.png") left no-repeat;
- }
+    background: #559df7 url("/static/images/pichu.png") left no-repeat;
+}
 
- .random {
+.random {
     width: 100%;
     height: 200px;
-    background: #8455F7 url("/static/images/charmander.png") right no-repeat;
+    background: #8455f7 url("/static/images/charmander.png") right no-repeat;
     text-align: center;
     padding-top: 100px;
- }
+}
 
 @keyframes pokemon-animation {
     0% {
-        background-position-y:-5px;
+        background-position-y: -5px;
     }
     100% {
-         background-position-y:5px;
+        background-position-y: 5px;
     }
 }
 
-.guess, .search-prompt, .random {
+.guess,
+.search-prompt,
+.random {
     animation-name: pokemon-animation;
     animation: pokemon-animation 1s infinite;
     animation-direction: alternate-reverse;
     transition-timing-function: ease-in-out;
 }
 
-form{
+form {
     vertical-align: top;
-    text-align:center;
-    padding-top:150px;
+    text-align: center;
+    padding-top: 150px;
 }
 
 input[type="text"] {
@@ -117,35 +122,35 @@ input[type="text"] {
     font-family: "lato";
 }
 
-.prompt{
-    width:100%;
-    margin-bottom:20px;
+.prompt {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.input{
-    width:100%;
+.input {
+    width: 100%;
 }
 
-.footer-container{
-    width:100%;
+.footer-container {
+    width: 100%;
     height: 200px;
     background-color: #000000;
 }
 
-.footer-1{
-    width:800px;
-    margin:auto;
-    text-align:left;
+.footer-1 {
+    width: 800px;
+    margin: auto;
+    text-align: left;
     font-size: 26px;
     padding-top: 20px;
     font-family: "Arial Black", Gadget, sans-serif;
     color: white;
 }
 
-.footer-2{
-    width:800px;
-    margin:auto;
-    text-align:left;
+.footer-2 {
+    width: 800px;
+    margin: auto;
+    text-align: left;
     font-size: 14px;
     padding-top: 14px;
     color: white;
@@ -153,20 +158,22 @@ input[type="text"] {
     line-height: 20px;
 }
 
-.random span, .guess a{
+.random span,
+.guess a {
     color: white;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 16px;
     border-radius: 16px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.random a:hover, .guess a:hover{
+.random a:hover,
+.guess a:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-a{
-    color:white;
+a {
+    color: white;
 }
 
 .suggestions-input {
@@ -193,16 +200,16 @@ a{
 }
 
 .footer-container a {
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .suggestions a {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 4px;
-    border: solid #3D72B5 1px;
+    border: solid #3d72b5 1px;
 }
 
-.suggestions a:hover{
+.suggestions a:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }

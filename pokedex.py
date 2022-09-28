@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
 from random import randint
+
+from flask import Flask, redirect, render_template, request, url_for
+
 from data import load_pokemon
 
 app = Flask(__name__)
@@ -86,5 +88,5 @@ def pokemon_profile(html_page, pokemon):
 with open("./static/data/pokemon/name_list.txt") as f:
     name_cache = f.readlines()
 
-app.debug = True
-app.run(threaded=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)

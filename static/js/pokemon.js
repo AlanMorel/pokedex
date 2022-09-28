@@ -15,15 +15,15 @@ function playSound() {
     sound.play();
 }
 
-function toggle(){
+function toggle() {
     var moves = document.querySelector(".all-moves");
     var icon = document.querySelector(".expand-collapse");
     document.querySelector(".moves-prompt").style.display = moves.style.display;
-    if(moves.style.display == "none"){
+    if (moves.style.display == "none") {
         moves.style.display = "block";
-        icon.src = "/static/images/collapse.png"
+        icon.src = "/static/images/collapse.png";
     } else {
         moves.style.display = "none";
-        icon.src = "/static/images/expand.png"
+        icon.src = "/static/images/expand.png";
     }
 }

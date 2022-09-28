@@ -8,10 +8,9 @@ var colorIndices = [0, 1, 2, 3];
 var gradientSpeed = 0.003;
 
 function updateGradient() {
-
     outer = document.querySelector(".guess-outer");
 
-    if (!outer){
+    if (!outer) {
         return;
     }
 
@@ -36,7 +35,6 @@ function updateGradient() {
     step += gradientSpeed;
 
     if (step >= 1) {
-
         step %= 1;
 
         colorIndices[0] = colorIndices[1];

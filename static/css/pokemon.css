@@ -3,7 +3,11 @@
     margin: auto;
 }
 
-.description, .weight-and-height, .types-and-abilities, .stats-header, .moves {
+.description,
+.weight-and-height,
+.types-and-abilities,
+.stats-header,
+.moves {
     width: 600px;
     margin: auto;
 }
@@ -40,15 +44,17 @@ form {
     padding: 10px;
 }
 
-.weight-and-height .header, .types-and-abilities .header {
+.weight-and-height .header,
+.types-and-abilities .header {
     font-size: 26px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     width: 295px;
     display: inline-block;
     margin-bottom: 10px;
 }
 
-.weight-and-height .value, .types-and-abilities .value {
+.weight-and-height .value,
+.types-and-abilities .value {
     width: 295px;
     display: inline-block;
     font-size: 16px;
@@ -78,7 +84,7 @@ form {
 .search {
     background-color: #313131;
     width: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     height: 150px;
     color: #ffffff;
     font-weight: 200;
@@ -97,7 +103,8 @@ input[type="image"] {
     margin-left: 6px;
 }
 
-.outer, .outer2 {
+.outer,
+.outer2 {
     width: 600px;
     margin: auto;
     height: 50px;
@@ -107,7 +114,7 @@ input[type="image"] {
 
 .outer .header {
     font-size: 26px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 .outer .value {
@@ -116,7 +123,7 @@ input[type="image"] {
 }
 
 .stats {
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
     padding-bottom: 24px;
 }
 
@@ -141,7 +148,7 @@ input[type="image"] {
 }
 
 @keyframes bar-animation {
-    0%   {
+    0% {
         filter: brightness(100%);
         -webkit-filter: brightness(100%);
         -moz-filter: brightness(100%);
@@ -166,26 +173,28 @@ input[type="image"] {
     animation-direction: alternate;
 }
 
-.outer2 .header{
+.outer2 .header {
     width: 190px;
     display: inline-block;
     font-size: 26px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
-.outer2 .value{
+.outer2 .value {
     width: 190px;
     display: inline-block;
     font-size: 36px;
 }
 
-.weight-and-height img, .types-and-abilities img, .moves img {
+.weight-and-height img,
+.types-and-abilities img,
+.moves img {
     max-height: 28px;
     margin-right: 12px;
     vertical-align: bottom;
 }
 
-.sound{
+.sound {
     max-width: 28px;
     vertical-align: bottom;
     cursor: pointer;
@@ -194,11 +203,12 @@ input[type="image"] {
     margin-left: 8px;
 }
 
-.sound:hover{
+.sound:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.ability, .moves span {
+.ability,
+.moves span {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     padding: 4px 6px 4px 6px;
@@ -207,7 +217,8 @@ input[type="image"] {
     margin-bottom: 8px;
 }
 
-.ability:hover, .moves span:hover {
+.ability:hover,
+.moves span:hover {
     background-color: rgba(0, 0, 0, 0.1);
     border: solid #777777 1px;
 }
@@ -216,9 +227,9 @@ input[type="image"] {
     margin-top: 24px;
 }
 
-.moves .header{
+.moves .header {
     font-size: 26px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     margin-bottom: 10px;
 }
 
@@ -226,6 +237,7 @@ input[type="image"] {
     cursor: pointer;
 }
 
-form img, .search-icon {
-    cursor:pointer;
+form img,
+.search-icon {
+    cursor: pointer;
 }

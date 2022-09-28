@@ -8,7 +8,7 @@ function showSuggestions(str) {
 
     var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200 && request.responseText.length > 0) {
             suggestions.innerHTML = request.responseText;
             suggestions.style.visibility = "visible";

@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+    pokedex:
+        container_name: pokedex
+        image: pokedex
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "${PORT}:${PORT}"
+        expose:
+            - "${PORT}"
+        networks:
+            - docker
+
+networks:
+    docker:
+        external: true

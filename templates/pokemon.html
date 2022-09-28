@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>Pokédex - {{name}}</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <link rel=stylesheet type="text/css" href="/static/css/base.css">
-        <link rel=stylesheet type="text/css" href="/static/css/pokemon.css">
-        <link rel=stylesheet type="text/css" href="/static/css/icons.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/pokemon.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/icons.css" />
     </head>
     <body>
         <nav>
             <a href="/">
-                <img src="/static/images/pokeball.png" class="pokeball">
-                <img src="/static/images/logo.png" class="logo">
+                <img src="/static/images/pokeball.png" class="pokeball" />
+                <img src="/static/images/logo.png" class="logo" />
             </a>
         </nav>
         <div class="top">
-            <img src="{{svg}}" class="sprite">
-            <br>
+            <img src="{{svg}}" class="sprite" />
+            <br />
             <div class="id">{{id}}</div>
-            <div class="name">{{name}}<img src="/static/images/sound.png" class="sound" onclick="playSound()"></div>
+            <div class="name">{{name}}<img src="/static/images/sound.png" class="sound" onclick="playSound()" /></div>
         </div>
         <div class="description">{{normal_description}}</div>
         <div class="weight-and-height">
-            <div class="header"><img src="/static/images/weight.png">Weight</div>
-            <div class="header"><img src="/static/images/height.png">Height</div>
+            <div class="header"><img src="/static/images/weight.png" />Weight</div>
+            <div class="header"><img src="/static/images/height.png" />Height</div>
             <div class="value">{{kg}} kg / {{pounds}} pounds</div>
             <div class="value">{{meters}} meters / {{feet}}'{{inches}}''</div>
         </div>
         <div class="types-and-abilities">
-            <div class="header"><img src="/static/images/types.png">Types</div>
-            <div class="header"><img src="/static/images/ability.png">Abilities</div>
+            <div class="header"><img src="/static/images/types.png" />Types</div>
+            <div class="header"><img src="/static/images/ability.png" />Abilities</div>
             <div class="value">
                 {% for type in types %}
                 <span class="type-icon type-{{type}}">{{ type }}</span>
@@ -43,23 +43,24 @@
             </div>
         </div>
         <div class="moves">
-            <div onclick="toggle()" class="header"><img src="/static/images/expand.png" class="expand-collapse">Moves</div>
-            <div class="all-moves" style="display:none;">
+            <div onclick="toggle()" class="header">
+                <img src="/static/images/expand.png" class="expand-collapse" />Moves
+            </div>
+            <div class="all-moves" style="display: none">
                 {% for move in moves %}
                 <span>{{ move }}</span>
                 {% endfor %}
             </div>
-            <div class="moves-prompt" style="display:block">
-                Click to show moves.
-            </div>
+            <div class="moves-prompt" style="display: block">Click to show moves.</div>
         </div>
         <div class="stats-header">
-            <img src="/static/images/stats.png">
+            <img src="/static/images/stats.png" />
         </div>
         <div class="stats">
             <div class="outer">
                 <div class="header">Attack</div>
-                <div class="value">{{attack}}
+                <div class="value">
+                    {{attack}}
                     <div class="bar-outer">
                         <div class="bar-inner attack"></div>
                     </div>
@@ -67,7 +68,8 @@
             </div>
             <div class="outer">
                 <div class="header">Special Attack</div>
-                <div class="value">{{special_attack}}
+                <div class="value">
+                    {{special_attack}}
                     <div class="bar-outer">
                         <div class="bar-inner special-attack"></div>
                     </div>
@@ -75,7 +77,8 @@
             </div>
             <div class="outer">
                 <div class="header">Defense</div>
-                <div class="value">{{defense}}
+                <div class="value">
+                    {{defense}}
                     <div class="bar-outer">
                         <div class="bar-inner defense"></div>
                     </div>
@@ -83,7 +86,8 @@
             </div>
             <div class="outer">
                 <div class="header">Special Defense</div>
-                <div class="value">{{special_defense}}
+                <div class="value">
+                    {{special_defense}}
                     <div class="bar-outer">
                         <div class="bar-inner special-defense"></div>
                     </div>
@@ -101,24 +105,24 @@
         <div class="search">
             <form method="get" action="{{ url_for('pokemon_page') }}">
                 Search for another Pokémon or type:
-                <br>
-                <input type="text" name="name">
-                <input type="submit" id="search-submit" value="" class="search-icon"/>
+                <br />
+                <input type="text" name="name" />
+                <input type="submit" id="search-submit" value="" class="search-icon" />
                 <span onclick="getRandomPokemon('{{ request.url_root }}')">
-                    <img src="/static/images/random.png">
+                    <img src="/static/images/random.png" />
                 </span>
                 <a href="{{ url_for('guess_page') }}">
-                    <img src="/static/images/guess.png">
+                    <img src="/static/images/guess.png" />
                 </a>
             </form>
         </div>
     </body>
     <script>
-      var color = {{background_color | tojson}};
-      var barValues = {{bar_values | tojson}};
-      var barColors = ["{{bar_colors[0]}}","{{bar_colors[1]}}","{{bar_colors[2]}}","{{bar_colors[3]}}"];
-      var sound = new Audio("{{sound}}");
-      var moves = {{ moves|tojson }};
+        var color = {{background_color | tojson}};
+        var barValues = {{bar_values | tojson}};
+        var barColors = ["{{bar_colors[0]}}","{{bar_colors[1]}}","{{bar_colors[2]}}","{{bar_colors[3]}}"];
+        var sound = new Audio("{{sound}}");
+        var moves = {{ moves|tojson }};
     </script>
     <script src="/static/js/pokemon.js"></script>
     <script src="/static/js/random.js"></script>
